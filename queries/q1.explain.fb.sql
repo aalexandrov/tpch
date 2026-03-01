@@ -1,0 +1,9 @@
+[0] [Projection] lineitem.l_returnflag, lineitem.l_linestatus, sum_qty, sum_base_price, sum_disc_price, sum_charge, avg_qty, avg_price, avg_disc, count_order
+ \_[1] [Sort] OrderBy: [lineitem.l_returnflag Ascending Last, lineitem.l_linestatus Ascending Last]
+    \_[2] [Aggregate] GroupBy: [lineitem.l_returnflag, lineitem.l_linestatus] Aggregates: [sum_qty: sum2(lineitem.l_quantity), sum_base_price: sum2(lineitem.l_extendedprice), sum_disc_price: sum2(multiply_0), sum_charge: sum2(multiply_1), avg_qty: avg2(lineitem.l_quantity), avg_price: avg2(lineitem.l_extendedprice), avg_disc: avg2(lineitem.l_discount), count_order: count(*)]
+      |   [Types]: sum_qty: numeric(15, 2) not null, sum_base_price: numeric(15, 2) not null, sum_disc_price: numeric(15, 2) not null, sum_charge: numeric(15, 2) not null, avg_qty: numeric(15, 2) not null, avg_price: numeric(15, 2) not null, avg_disc: numeric(15, 2) not null, count_order: bigint not null
+       \_[3] [Projection] lineitem.l_quantity, lineitem.l_extendedprice, lineitem.l_discount, lineitem.l_returnflag, lineitem.l_linestatus, multiply_0: (lineitem.l_extendedprice * (1.00 - lineitem.l_discount)), multiply_1: ((lineitem.l_tax + 1.00) * (lineitem.l_extendedprice * (1.00 - lineitem.l_discount)))
+         |   [Types]: multiply_0: numeric(15, 2) not null, multiply_1: numeric(15, 2) not null
+          \_[4] [Filter] (cast(lineitem.l_shipdate as timestamp) <= TIMESTAMP '1998-09-02 00:00:00')
+             \_[5] [StoredTable] Name: "lineitem"
+                   [Types]: lineitem.l_quantity: numeric(15, 2) not null, lineitem.l_extendedprice: numeric(15, 2) not null, lineitem.l_discount: numeric(15, 2) not null, lineitem.l_tax: numeric(15, 2) not null, lineitem.l_returnflag: text not null, lineitem.l_linestatus: text not null, lineitem.l_shipdate: date not null

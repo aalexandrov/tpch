@@ -1,24 +1,23 @@
 DROP DATABASE IF EXISTS tpch;
 CREATE DATABASE tpch;
--- USE DATABASE tpch;
 
-DROP TABLE IF EXISTS nation;
-CREATE TABLE nation (
+DROP TABLE IF EXISTS tpch.public.nation;
+CREATE TABLE tpch.public.nation (
   n_nationkey  INTEGER NOT NULL,
   n_name       CHAR(25) NOT NULL,
   n_regionkey  INTEGER NOT NULL,
   n_comment    VARCHAR(152)
 );
 
-DROP TABLE IF EXISTS region;
-CREATE TABLE region (
+DROP TABLE IF EXISTS tpch.public.region;
+CREATE TABLE tpch.public.region (
   r_regionkey  INTEGER NOT NULL,
   r_name       CHAR(25) NOT NULL,
   r_comment    VARCHAR(152)
 );
 
-DROP TABLE IF EXISTS part;
-CREATE TABLE part (
+DROP TABLE IF EXISTS tpch.public.part;
+CREATE TABLE tpch.public.part (
   p_partkey      INTEGER NOT NULL,
   p_name         VARCHAR(55) NOT NULL,
   p_mfgr         CHAR(25) NOT NULL,
@@ -30,8 +29,8 @@ CREATE TABLE part (
   p_comment      VARCHAR(23) NOT NULL
 );
 
-DROP TABLE IF EXISTS supplier;
-CREATE TABLE supplier (
+DROP TABLE IF EXISTS tpch.public.supplier;
+CREATE TABLE tpch.public.supplier (
   s_suppkey    INTEGER NOT NULL,
   s_name       CHAR(25) NOT NULL,
   s_address    VARCHAR(40) NOT NULL,
@@ -41,8 +40,8 @@ CREATE TABLE supplier (
   s_comment    VARCHAR(101) NOT NULL
 );
 
-DROP TABLE IF EXISTS partsupp;
-CREATE TABLE partsupp (
+DROP TABLE IF EXISTS tpch.public.partsupp;
+CREATE TABLE tpch.public.partsupp (
   ps_partkey     INTEGER NOT NULL,
   ps_suppkey     INTEGER NOT NULL,
   ps_availqty    INTEGER NOT NULL,
@@ -50,8 +49,8 @@ CREATE TABLE partsupp (
   ps_comment     VARCHAR(199) NOT NULL
 );
 
-DROP TABLE IF EXISTS customer;
-CREATE TABLE customer (
+DROP TABLE IF EXISTS tpch.public.customer;
+CREATE TABLE tpch.public.customer (
   c_custkey     INTEGER NOT NULL,
   c_name        VARCHAR(25) NOT NULL,
   c_address     VARCHAR(40) NOT NULL,
@@ -62,8 +61,8 @@ CREATE TABLE customer (
   c_comment     VARCHAR(117) NOT NULL
 );
 
-DROP TABLE IF EXISTS orders;
-CREATE TABLE orders (
+DROP TABLE IF EXISTS tpch.public.orders;
+CREATE TABLE tpch.public.orders (
   o_orderkey       INTEGER NOT NULL,
   o_custkey        INTEGER NOT NULL,
   o_orderstatus    CHAR(1) NOT NULL,
@@ -75,8 +74,8 @@ CREATE TABLE orders (
   o_comment        VARCHAR(79) NOT NULL
 );
 
-DROP TABLE IF EXISTS lineitem;
-CREATE TABLE lineitem (
+DROP TABLE IF EXISTS tpch.public.lineitem;
+CREATE TABLE tpch.public.lineitem (
   l_orderkey       INTEGER NOT NULL,
   l_partkey        INTEGER NOT NULL,
   l_suppkey        INTEGER NOT NULL,
@@ -94,4 +93,3 @@ CREATE TABLE lineitem (
   l_shipmode       CHAR(10) NOT NULL,
   l_comment        VARCHAR(44) NOT NULL
 );
-
