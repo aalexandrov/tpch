@@ -10,7 +10,7 @@ Setup the following aliases
 ```bash
 # Firebolt Core aliases
 alias fb-core-init='sudo mkdir -p /opt/firebolt-core/data && sudo chmod 777 /opt/firebolt-core/data'
-alias fb-core-start='docker run --rm --detach -p "3473:3473" --ulimit memlock=8589934592:8589934592 --security-opt seccomp=unconfined -v "/opt/firebolt-core/data:/firebolt-core/volume" -v "/home/alexander/benchmarks:/firebolt-core/benchmarks" ghcr.io/firebolt-db/firebolt-core:preview-rc'
+alias fb-core-start='docker run --rm --detach -p "3473:3473" --ulimit memlock=8589934592:8589934592 --security-opt seccomp=unconfined -v "/opt/firebolt-core/data:/firebolt-core/volume" -v "/opt/benchmarks:/opt/benchmarks" ghcr.io/firebolt-db/firebolt-core:preview-rc'
 alias fb-core-stop='docker stop $(docker ps -q --filter ancestor=ghcr.io/firebolt-db/firebolt-core:preview-rc)'
 alias fb-core-cli='docker exec --interactive --tty $(docker ps -q --filter ancestor=ghcr.io/firebolt-db/firebolt-core:preview-rc) fbcli'
 alias fb-core-cli-pipe='docker exec --interactive $(docker ps -q --filter ancestor=ghcr.io/firebolt-db/firebolt-core:preview-rc) fbcli'
@@ -24,4 +24,4 @@ fb-core-cli-pipe 02_data.sql   # Load TPC-H Data
 ```
 
 The `02_data.sql` script assumes that the TPC-H `.tbl` data files already exist
-in [the `data/sf0001` folder](../../data/sf0001/).
+in [the `data/sf0001/csv` folder](../../data/sf0001/csv).

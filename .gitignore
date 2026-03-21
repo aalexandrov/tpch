@@ -1,2 +1,3 @@
+data/**/*.duckdb
+data/**/sf*/
 tools
-data/sf*/

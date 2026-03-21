@@ -18,4 +18,4 @@ psql -f 04_drop_indexes.sql   # Drop indexes
 ```
 
 The `02_data.sql` script assumes that the TPC-H `.tbl` data files already exist
-in [the `data/sf0001` folder](../../data/sf0001/).
+in [the `data/csv/sf0001` folder](../../data/csv/sf0001/).

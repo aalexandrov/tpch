@@ -5,11 +5,11 @@ SET search_path = :schema;
 \set base `echo $HOME/benchmarks/tpch/data/`
 \cd :base:sf
 
-\COPY region FROM './region.tbl' WITH (FORMAT csv, DELIMITER '|');
-\COPY nation FROM './nation.tbl' WITH (FORMAT csv, DELIMITER '|');
-\COPY supplier FROM './supplier.tbl' WITH (FORMAT csv, DELIMITER '|');
-\COPY part FROM './part.tbl' WITH (FORMAT csv, DELIMITER '|');
-\COPY customer FROM './customer.tbl' WITH (FORMAT csv, DELIMITER '|');
-\COPY partsupp FROM './partsupp.tbl' WITH (FORMAT csv, DELIMITER '|');
-\COPY orders FROM './orders.tbl' WITH (FORMAT csv, DELIMITER '|');
-\COPY lineitem FROM './lineitem.tbl' WITH (FORMAT csv, DELIMITER '|');
+\COPY region FROM './csv/region.tbl' WITH (FORMAT csv, DELIMITER '|');
+\COPY nation FROM './csv/nation.tbl' WITH (FORMAT csv, DELIMITER '|');
+\COPY supplier FROM './csv/supplier.tbl' WITH (FORMAT csv, DELIMITER '|');
+\COPY part FROM './csv/part.tbl' WITH (FORMAT csv, DELIMITER '|');
+\COPY customer FROM './csv/customer.tbl' WITH (FORMAT csv, DELIMITER '|');
+\COPY partsupp FROM './csv/partsupp.tbl' WITH (FORMAT csv, DELIMITER '|');
+\COPY orders FROM './csv/orders.tbl' WITH (FORMAT csv, DELIMITER '|');
+\COPY lineitem FROM './csv/lineitem.tbl' WITH (FORMAT csv, DELIMITER '|');
